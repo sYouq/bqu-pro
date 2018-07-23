@@ -56,7 +56,7 @@ export default {
     }
     #footer ul li i{
         font-size:.48rem;
-        margin-bottom: .08rem;
+        margin-bottom: .06rem;
     }
     #footer ul li.active{
         color:#F1457C;
