@@ -39,6 +39,7 @@ export default {
         width: 100%;
         height:0.98rem;
         background: #fff;
+        border-top: 1px solid #e8e8e8;
     }
     #footer ul{
         display: flex;
