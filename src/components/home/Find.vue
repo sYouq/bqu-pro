@@ -5,13 +5,7 @@
         
     </div>
 
-    <!-- 测试文件，可以删除 -->
-    <swiper loop page t="2000">
-        <swiper-item><img src="http://img5.imgtn.bdimg.com/it/u=415293130,2419074865&fm=27&gp=0.jpg" alt=""></swiper-item>
-        <swiper-item><img src="http://img5.imgtn.bdimg.com/it/u=415293130,2419074865&fm=27&gp=0.jpg" alt=""></swiper-item>
-        <swiper-item><img src="http://img5.imgtn.bdimg.com/it/u=415293130,2419074865&fm=27&gp=0.jpg" alt=""></swiper-item>
-    </swiper>
-     <!-- 测试文件，可以删除 -->
+    
 </div>
 </template>
 

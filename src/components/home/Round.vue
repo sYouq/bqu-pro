@@ -1,7 +1,7 @@
 <template>
 <div>
 
-    <h1>round</h1>
+    
 
 </div>
 </template>
@@ -21,9 +21,5 @@ export default {
 </script>
 
 <style scoped>
-h1{
-    font-size: 20px;
-    height: 1000px;
-    background: gold;
-}
+
 </style>
