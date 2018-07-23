@@ -71,6 +71,8 @@ export default {
 </script>
 
 <style scoped>
-
+.content{
+    background: #f5f5f5;
+}
 
 </style>
