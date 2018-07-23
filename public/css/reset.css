@@ -13,5 +13,5 @@ input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;
 a{text-decoration:none;color: #000;}
 html,body{*position:static;width:100%;height:100%;color:#333;}
 html{font-family: sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
-html,body{ width:100%; height:100%; font-size:0.14rem; }
+html,body{ width:100%; height:100%; font-size:28px; }
 .clearfix:after{content:'.';display:block;height:0;overflow:hidden;clear:both;}

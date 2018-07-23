@@ -3,8 +3,6 @@
     <!-- 首页头部组件 -->
 <home-header></home-header>
 
-
-
 <app-content class="content">
     <div class="find" v-show="page == 1">
         <find></find>

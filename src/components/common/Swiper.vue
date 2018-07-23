@@ -44,6 +44,7 @@ export default {
             autoplayDisableOnInteraction : false,
             //循环滚动
             loop: this.loops
+             
         });
     }
 }
