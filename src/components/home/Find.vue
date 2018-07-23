@@ -1,7 +1,6 @@
 <template>
 <div>
     
-    <h1>测试lz</h1>
     
 </div>
 </template>
