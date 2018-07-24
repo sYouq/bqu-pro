@@ -1,10 +1,7 @@
 <template>
 <div>
     
-<<<<<<< HEAD
     
-=======
->>>>>>> master
     
 </div>
 </template>
