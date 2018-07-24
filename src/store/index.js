@@ -1,10 +1,14 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-
+import Home from "./home/home.js";
 Vue.use(Vuex);
 
-
-
-export default new Vuex.Store({
-    
+const store=new Vuex.Store({
+    modules:{
+    	Home,
+    }
 })
+
+export default store;
+
+console.log(store)

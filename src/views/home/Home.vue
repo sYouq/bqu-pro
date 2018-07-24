@@ -1,27 +1,39 @@
 <template>
-<div>
-    <!-- 首页头部组件 -->
-<home-header></home-header>
+    <div class="app">
+        <!-- 首页头部组件 -->
+        <home-header></home-header>
 
-<app-content class="content">
-    <div class="find" v-show="page == 1">
-        <find></find>
-    </div>
-    
-    <div class="attention"  v-show="page == 0">
-        <attention></attention>
-    </div>
+        <!-- 首页导航切换 -->
+        <Swiper  class="Swiper" :default="true">
 
-    <div class="round"  v-show="page == 2">
-        <round></round>
+            <SwiperItem>
+                    <app-content>
+                        <attention></attention>
+                    </app-content>
+            </SwiperItem>
+
+            <SwiperItem>
+                <app-content>
+                    <find></find>
+                </app-content>
+            </SwiperItem>
+
+            <SwiperItem>
+                    <app-content>
+                        <round></round>
+                    </app-content>
+            </SwiperItem>
+
+        </Swiper>
+
+        <!-- 侧边栏组件 -->
+        <slide-bar></slide-bar>
+
+        <search v-show="isGoSearch"></search>
+
+        <!-- 首页的子页面入口 -->
+        <router-view></router-view>
     </div>
-</app-content>
-<!-- 侧边栏组件 -->
-<slide-bar></slide-bar>
-<search v-show="isGoSearch"></search>
-<!-- 首页的子页面入口 -->
-<router-view></router-view>
-</div>
 </template>
 
 <script>
@@ -37,6 +49,12 @@ import Round from "@/components/home/Round.vue";
 import Find from "@/components/home/Find.vue";
 //搜索组件
 import Search from "@/components/home/Search.vue";
+//轮播容器
+import Swiper from "@/components/common/Swiper.vue";
+//轮播元素
+import SwiperItem from "@/components/common/SwiperItem.vue";
+//引入store
+import Vuex from "vuex";
 
 export default {
     components : {
@@ -45,19 +63,20 @@ export default {
         Round,
         Find,
         SlideBar,
-        Search
+        Search,
+        Swiper,
+        SwiperItem
     },
     data(){
         return {
             isGoSearch : false, //判断是否显示搜索页面
-            page : 1, 
         }
     },
+    computed:Vuex.mapState({
+        playIndex:val=>val.Home.playIndex,
+    }),
     mounted(){
-        //监听头部组件点击切换页面
-        this.$pubsub.$on("checkPage", (val)=>{
-            this.page = val;
-        })
+
         //监听搜索页面取消搜索事件，关闭搜索页面
         this.$pubsub.$on("closeSearch", ()=>{
             this.isGoSearch = false;
@@ -70,7 +89,20 @@ export default {
 }
 </script>
 
-<style scoped>
-
-
+<style scoped="" lang="scss">
+    .Swiper{
+        position: absolute;
+        top:.88rem;
+        left: 0;
+        bottom : 0.98rem;
+        width: 100%;
+    }
+   .Swiper .content{
+        position: absolute;
+        top:0;
+        left: 0;
+        bottom : 0;
+        width: 100%;
+        overflow: hidden;
+    }
 </style>

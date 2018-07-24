@@ -5,7 +5,7 @@
         </div>
         <div class="center-content">
             <div class="center-title">
-                <span class="top-title" :class="{active : isActive == index}" v-for="(item, index) in titleList" :key="index" @click="checkPageAction(index)">{{ item }}</span>
+                <span class="top-title" :class="{active : playIndex == index}" v-for="(item, index) in titleList" :key="index" @click="checkPageAction(index)">{{ item }}</span>
             </div>
         </div>
         <div class="btn btn-r" @click="goSearchPage()">
@@ -15,30 +15,30 @@
 </template>
 
 <script>
-export default {
-    data(){
-        return {
-            titleList : ["关注","发现","附近"],
-            isActive : '1',
-        }
-    },
-    methods: {
-        //顶部页面切换，关注、发现、附近
-        checkPageAction(index){
-            this.isActive = index;
-            this.$pubsub.$emit("checkPage", index)
-            
+
+    import Vuex from "vuex";
+
+    export default {
+        data(){
+            return {
+                titleList : ["关注","发现","附近"],
+            }
         },
-        //左侧打开侧边栏
-        showSlideBarAction(){
-            this.$pubsub.$emit("showSlideBar");
-        },
-        //进入到搜索页面
-        goSearchPage(){
-            this.$pubsub.$emit("goSearchPage");
+        computed:Vuex.mapState({
+            playIndex:val=>val.Home.playIndex,
+        }),
+        methods: {
+            //左侧打开侧边栏
+            showSlideBarAction(){
+                this.$pubsub.$emit("showSlideBar");
+            },
+            //进入到搜索页面
+            goSearchPage(){
+                this.$pubsub.$emit("goSearchPage");
+            }
         }
     }
-}
+
 </script>
 
 <style scoped>
@@ -48,7 +48,7 @@ export default {
         left: 0;
         width: 100%;
         height: .88rem;
-        background: #fff;      
+        background: #fff;
     }
     .center-content{
         position: absolute;

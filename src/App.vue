@@ -1,9 +1,12 @@
 <template>
   <div id="app">
-    
-    <router-view></router-view>
-    
+
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
+
     <footer-bar></footer-bar>
+
   </div>
 </template>
 
@@ -17,6 +20,9 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+	#app{
+		width: 100%;
+		height: 100%;
+	}
 </style>

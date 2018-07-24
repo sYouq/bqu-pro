@@ -1,25 +1,40 @@
 <template>
-<div>
-
-    
-
-</div>
+	<div>
+		<h1>test3</h1>
+	</div>
 </template>
 
 <script>
+	import Vuex from "vuex";
 
+	export default {
+	    data(){
+	        return {
 
-export default {
-    
-    data(){
-        return {
-          
-          
-        }
-    }
-}
+	        	list:true,
+	        }
+	    },
+	    computed:Vuex.mapState({
+	        playIndex:val=>val.Home.playIndex,
+	    }),
+	    watch:{
+	    	playIndex(newVal){
+	    		if(newVal==2&&this.list){
+	    			this.list=false;
+	    			console.log("开始请求数据")
+	    		}
+	    	}
+	    },
+	    created(){
+	    	console.log("round")
+	    }
+	}
+
 </script>
 
 <style scoped>
-
+	h1{
+		background: blue;
+		height: 17rem;
+	}
 </style>

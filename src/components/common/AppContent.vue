@@ -1,5 +1,5 @@
 <template>
-    <div id="content" ref="content">
+    <div class="content" ref="content">
         <div>
             <slot></slot>
         </div>
@@ -13,7 +13,8 @@ export default {
     mounted(){
         var myScroll = new IScroll(this.$refs.content, {
             //配置参数，打开滚动监听事件
-            probeType : 3
+            probeType : 3,
+            bounce: false,
         });
         //把myScroll对象挂载到组件实例中，方便调用
         this.myScroll = myScroll;
@@ -35,7 +36,7 @@ export default {
 </script>
 
 <style scoped>
-    #content{
+    .content{
         position: absolute;
         top:.88rem;
         left: 0;
