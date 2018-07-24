@@ -8,6 +8,8 @@ import Home from "./views/home/Home.vue";
 import Dynamic from "./views/dynamic/Dynamic.vue";
 import Message from "./views/message/Message.vue";
 import Mine from "./views/mine/Mine.vue";
+import Login from "./views/mine/Login.vue";
+
 
 export default new Router({
   routes: [
@@ -31,6 +33,11 @@ export default new Router({
       path: '/mine',
       name: 'mine',
       component: Mine
+    },
+    {
+      name : "login",
+      path : "/login",
+      component : Login
     },
 
 
