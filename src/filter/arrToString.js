@@ -7,3 +7,31 @@ export function arrToString (val, sign){
         return val.join(sign);
     }
 }
+
+ //过滤数据的函数
+ export function filterData(arr,...rest){
+ 	if(arr.length){
+ 		let newArr=arr.map(val=>{
+ 			let obj={};
+ 			for(let i in rest){
+ 				obj[rest[i]]=val[rest[i]];
+ 			}
+ 			return obj;
+ 		})
+ 		return newArr;
+ 	}else{
+ 		let obj={};
+ 		for(let i in rest){
+ 			obj[rest[i]]=arr[rest[i]];
+ 		}
+ 		return obj;
+ 	}
+}
+
+//过滤对象属性函数
+export function filterObjName(arr,val){
+	for(var i in arr){
+		val=val[arr[i]]
+	}
+	return val;
+}

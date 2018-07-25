@@ -2,6 +2,7 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
 import store from './store/index.js';
+import falls from "./extend/Extend.js"
 //中间组件，用于传值
 Vue.prototype.$pubsub = new Vue();
 

@@ -10,12 +10,25 @@ import Vuex from "vuex";
 export default {
     data(){
         return {
-
+            list:true,
 
         }
     },
+    computed:Vuex.mapState({
+        //轮播下标的属性
+        playIndex:val=>val.Home.playIndex,
+    }),
+    watch:{
+        //监听轮播下标
+        playIndex(newVal){
+            if(newVal==0&&this.list){
+                this.list=false;
+                console.log("可以请求关注数据")
+            }
+        }
+    },
     created(){
-    	console.log("atten")
+
     }
 }
 </script>

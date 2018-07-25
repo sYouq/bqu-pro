@@ -13,7 +13,7 @@
             </SwiperItem>
 
             <SwiperItem>
-                <app-content>
+                <app-content :reciveScroll="true">
                     <find></find>
                 </app-content>
             </SwiperItem>

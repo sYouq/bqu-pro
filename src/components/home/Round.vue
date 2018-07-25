@@ -21,12 +21,12 @@
 	    	playIndex(newVal){
 	    		if(newVal==2&&this.list){
 	    			this.list=false;
-	    			console.log("开始请求数据")
+	    			console.log("可以请求数据附近")
 	    		}
 	    	}
 	    },
 	    created(){
-	    	console.log("round")
+
 	    }
 	}
 

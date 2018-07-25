@@ -5,7 +5,7 @@
         </div>
         <div class="center-content">
             <div class="center-title">
-                <span class="top-title" :class="{active : playIndex == index}" v-for="(item, index) in titleList" :key="index" @click="checkPageAction(index)">{{ item }}</span>
+                <span class="top-title" :class="{active : playIndex == index}" v-for="(item, index) in titleList" :key="index" @click="ChangPlayIndex(index)">{{ item }}</span>
             </div>
         </div>
         <div class="btn btn-r" @click="goSearchPage()">
@@ -25,9 +25,14 @@
             }
         },
         computed:Vuex.mapState({
+            //轮播下标
             playIndex:val=>val.Home.playIndex,
         }),
         methods: {
+            ...Vuex.mapActions({
+                //改变下标的方法
+                ChangPlayIndex:"Home/headerChangPlayIndex",
+            }),
             //左侧打开侧边栏
             showSlideBarAction(){
                 this.$pubsub.$emit("showSlideBar");
