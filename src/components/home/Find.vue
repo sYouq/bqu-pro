@@ -1,7 +1,7 @@
 <template>
 <div>
     
-    
+    <h1></h1>
 </div>
 </template>
 
@@ -25,5 +25,8 @@ export default {
 </script>
 
 <style scoped>
-
+    h1{
+        height: 3000px;
+        background: palegreen;
+    }
 </style>

@@ -1,33 +1,38 @@
 <template>
-<div class="swiper-container" ref="swiper">
+<div class="swiper-container" ref="swiper" :class="{lzpaghide: pags}">
     <div class="swiper-wrapper">
         <slot></slot>
     </div>
     <!-- 如果需要分页器 -->
-    <div class="swiper-pagination"></div>
+    <div class="swiper-pagination" :class="{lzpag: pags}"></div>
 </div>
 </template>
 
 <script>
 export default {
-    props : ["t", "page", "loop"],
+    props : ["t", "page", "loop","index","pag"],
     data(){
         return {
             pagination : "",
-            loops : false
+            loops : false,
+            //lz设置分页器的样式
+            pags : false
         }
     },
     methods : {
 
     },
     mounted(){
-        console.log(this.loop)
+        // console.log(this.loop)
+        
         if(this.page != undefined){
             this.pagination = ".swiper-pagination";
         }
         if(this.loop != undefined){
             this.loops = true;
         }
+        //lz设置分页器样式
+        this.pags = this.pag
         //swiper 3.0
         //设置this.swiper，直接挂载在vue组件的实例上，可以在swiper组件上获取
         /*参数 ： t : 轮播图滚动的速度，不设置，轮播图不会自动轮播，如： t = "3000" 
@@ -46,9 +51,26 @@ export default {
             loop: this.loops
              
         });
+        this.swiper.slideTo(this.index,0)
     }
 }
 </script>
 
+<style>
+
+.lzpag{
+    width: 100%;
+    bottom: -2.9rem;
+}
+.lzpaghide{
+    overflow: visible;
+}
+.swiper-pagination-bullet{
+    background: #fff;
+    width: .12rem;
+    height: .12rem;
+    margin-left: .1rem;
+}
+</style>
 
 

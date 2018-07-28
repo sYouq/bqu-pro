@@ -1,5 +1,5 @@
 <template>
-    <div id="content" ref="content">
+    <div class="content" ref="content">
         <div>
             <slot></slot>
         </div>
@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style scoped>
-    #content{
+    .content{
         position: absolute;
         top:.88rem;
         left: 0;
