@@ -5,13 +5,15 @@
     <transition name="slideInfo">
         <div class="slideBar" v-show="isShow">
             <h1 class="title">更多</h1>
-            <ul>
-                <li v-for="(navItem,index) in navList" :key="index" @click="checkTool(navItem.path)">
-                    <i class="iconfont" :class="navItem.font"></i>
-                    {{navItem.title}}
-                </li>
+            <ul @click="checkTool()">
+                <li ><i class="iconfont icon-wode2"></i>我的关注</li>
+                <li ><i class="iconfont icon-p-photo-copy"></i>我的相册</li>
+                <li ><i class="iconfont icon-saoyisao1"></i>扫一扫</li>
+                <li @click="goSetting()">
 
+                    <i class="iconfont icon-shezhi">
 
+                    </i>设置</li>
             </ul>
         </div>
     </transition>
@@ -19,16 +21,11 @@
 </template>
 
 <script>
+
 export default {
     data(){
         return{
             isShow : false,
-            navList : [
-                {title:'我的关注',path:'/',font:'icon-wode2'},
-                {title:'我的相册',path:'/',font:'icon-p-photo-copy'},
-                {title:'扫一扫',path:'/',font:'icon-saoyisao1'},
-                {title:'设置',path:'/mine/setting',font:'icon-shezhi'},
-            ]
         }
     },
     methods :{
@@ -37,16 +34,22 @@ export default {
             this.isShow = false;
         },
         //点击侧边功能选项，影藏侧边栏
-        checkTool(path){
+        checkTool(){
             this.isShow = false;
-            this.$router.push(path);
+        },
+        goSetting(){
+            this.$router.push({
+                name: 'setting',
+            });
         }
+
     },
     mounted(){
         //监听头部点击显示侧边栏事件
         this.$pubsub.$on("showSlideBar", ()=>{
             this.isShow = true;
         })
+
     }
 }
 </script>

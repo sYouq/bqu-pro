@@ -3,7 +3,7 @@
 
 
         <header>
-            <i class="return iconfont icon-fanhui"></i>
+            <i @click="goBack" class="return iconfont icon-fanhui"></i>
             <h1>关于伴趣</h1>
 
         </header>
@@ -23,14 +23,20 @@
 
 <script>
 export default {
-
+    methods: {
+        goBack(){
+            history.back();
+        }
+    }
 }
 </script>
 
 <style scoped>
 #about{
+    top: -100%;
+    left: 0;
     position: relative;
-    z-index: 10;
+    z-index: 20;
     width: 100%;
     height: 13.34rem;
     background: #f5f5f5;

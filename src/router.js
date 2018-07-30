@@ -8,12 +8,13 @@ import Home from "./views/home/Home.vue";
 import Dynamic from "./views/dynamic/Dynamic.vue";
 import Message from "./views/message/Message.vue";
 import Mine from "./views/mine/Mine.vue";
-import FongSetting from "./components/common/FongSetting.vue"
-import FongPersonalData from "./components/common/FongPersonalData.vue"
+
+import FongSetting from "./components/common/FongSetting.vue";
 import Account from "./components/setting/Account.vue"
-import Safe from "./components/setting/Safe.vue"
-import ClearPlace from "./components/setting/ClearPlace.vue"
-import About from "./components/setting/About.vue"
+import Safe from "./components/setting/Safe.vue";
+import ClearPlace from "./components/setting/ClearPlace.vue";
+import About from "./components/setting/About.vue";
+import FongPersonalData from "./components/common/FongPersonalData.vue";
 
 
 export default new Router({
@@ -41,53 +42,47 @@ export default new Router({
 
     },
     {
-      path: '/setting',
       name: 'setting',
+      path: '/setting',
       component: FongSetting,
-      /*children: [
+      children: [
         {
-          name: 'setting-data',
-          path: 'detail/:option',
-          component: SettingOption
+          name: 'account',
+          path: '/setting/account',
+          component: Account
+
+        },
+        {
+          name: 'safe',
+          path: '/setting/safe',
+          component: Safe
+
+        },
+        {
+          name: 'clear-place',
+          path: '/setting/clear-place',
+          component: ClearPlace
+
+        },
+        {
+          name: 'about',
+          path: '/setting/about',
+          component: About
+
         }
-      ]*/
+      ]
     },
+
     {
       path: '/selfdata',
       name: 'selfdata',
-      component: FongPersonalData,
-      /*children: [
-        {
-          name: 'setting-data',
-          path: 'detail/:option',
-          component: SettingOption
-        }
-      ]*/
-    },
-    {
-      path: '/account',
-      name: 'account',
-      component: Account
+      component: FongPersonalData
 
     },
-    {
-      path: '/safe',
-      name: 'safe',
-      component: Safe
 
-    },
-    {
-      path: '/clear-place',
-      name: 'clear-place',
-      component: ClearPlace
 
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: About
 
-    },
+
 
     {
       path : "**",

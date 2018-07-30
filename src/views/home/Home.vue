@@ -7,7 +7,7 @@
     <div class="find" v-show="page == 1">
         <find></find>
     </div>
-    
+
     <div class="attention"  v-show="page == 0">
         <attention></attention>
     </div>
@@ -19,6 +19,7 @@
 <!-- 侧边栏组件 -->
 <slide-bar></slide-bar>
 <search v-show="isGoSearch"></search>
+
 <!-- 首页的子页面入口 -->
 <router-view></router-view>
 </div>
@@ -38,6 +39,7 @@ import Find from "@/components/home/Find.vue";
 //搜索组件
 import Search from "@/components/home/Search.vue";
 
+
 export default {
     components : {
         HomeHeader,
@@ -45,12 +47,14 @@ export default {
         Round,
         Find,
         SlideBar,
-        Search
+        Search,
+
     },
     data(){
         return {
             isGoSearch : false, //判断是否显示搜索页面
-            page : 1, 
+
+            page : 1,
         }
     },
     mounted(){
@@ -66,6 +70,7 @@ export default {
         this.$pubsub.$on("goSearchPage", ()=>{
             this.isGoSearch = true;
         })
+
     }
 }
 </script>

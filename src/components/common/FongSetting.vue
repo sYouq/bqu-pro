@@ -1,52 +1,77 @@
 <template>
-    <div id="setting">
+<div>
+    <keep-alive>
+        <router-view>
+
+        </router-view>
+    </keep-alive>
+
+        <div id="setting">
 
 
-        <header>
-            <i class="return iconfont icon-fanhui"></i>
-            <h1>设置</h1>
+            <header>
+                <i class="return iconfont icon-fanhui" @click="cancelSetting"></i>
+                <h1>设置</h1>
 
-        </header>
+            </header>
 
-        <ul>
-            <li @click="goAccount()">账号管理
-                <i class="userpic"></i>
-                <i class="account iconfont icon-back-copy"></i>
-            </li>
-            <li class="oneborder"></li>
-            <li @click="goSafe()">安全隐私
-                <i class="safe iconfont icon-back-copy"></i>
-            </li>
-            <li class="oneborder"></li>
-            <li @click="goClearPlace()">清理存储空间
-                <i class="clearplace iconfont icon-back-copy"></i>
-            </li>
-            <li class="oneborder"></li>
-            <li @click="goAbout()">关于伴趣
-                <i class="about iconfont icon-back-copy"></i>
-            </li>
-        </ul>
-        <button>退出登录</button>
+            <ul>
+                <li @click="goAccount()">账号管理
+                    <i class="userpic"></i>
+                    <i class="account iconfont icon-back-copy"></i>
+                </li>
+                <li class="oneborder"></li>
+                <li @click="goSafe()">安全隐私
+                    <i class="safe iconfont icon-back-copy"></i>
+                </li>
+                <li class="oneborder"></li>
+                <li @click="goClearPlace()">清理存储空间
+                    <i class="clearplace iconfont icon-back-copy"></i>
+                </li>
+                <li class="oneborder"></li>
+                <li @click="goAbout()">关于伴趣
+                    <i class="about iconfont icon-back-copy"></i>
+                </li>
+            </ul>
+            <button>退出登录</button>
+        </div>
 
-
-    </div>
+</div>
 </template>
 
 <script>
 export default {
-    methods:{
-        goAccount(){
 
+
+    methods:{
+        //点击返回，返回至“首页”页面或者“我的”页面
+        cancelSetting(){
+            history.back();
+        },
+        goAccount(){
+            this.$router.push({
+                name: 'account',
+                path: '/setting/account',
+            });
         },
         goSafe(){
-
+            this.$router.push({
+                name: 'safe',
+                path: '/setting/safe',
+            });
         },
         goClearPlace(){
-
+            this.$router.push({
+                name: 'clear-place',
+                path: '/setting/clear-place',
+            });
         },
         goAbout(){
-
-        },
+            this.$router.push({
+                name: 'about',
+                path: 'setting/about',
+            });
+        }
     }
 }
 </script>
