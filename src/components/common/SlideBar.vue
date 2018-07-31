@@ -9,11 +9,7 @@
                 <li ><i class="iconfont icon-wode2"></i>我的关注</li>
                 <li ><i class="iconfont icon-p-photo-copy"></i>我的相册</li>
                 <li ><i class="iconfont icon-saoyisao1"></i>扫一扫</li>
-                <li @click="goSetting()">
-
-                    <i class="iconfont icon-shezhi">
-
-                    </i>设置</li>
+                <li @click="goSetting()"><i class="iconfont icon-shezhi"></i>设置</li>
             </ul>
         </div>
     </transition>

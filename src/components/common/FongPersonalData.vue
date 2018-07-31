@@ -1,9 +1,15 @@
 <template>
+<div id="selfdata-wrap">
+    <keep-alive>
+        <router-view>
+
+        </router-view>
+    </keep-alive>
+
     <div id="selfdata">
 
-
         <header>
-            <i class="return iconfont icon-fanhui"></i>
+            <i @click="goBack" class="return iconfont icon-fanhui"></i>
             <h1>个人资料</h1>
 
         </header>
@@ -13,11 +19,11 @@
                 <span></span>
                 <i class="select iconfont icon-back-copy"></i></li>
             <li class="oneborder"></li>
-            <li class="pet">昵称
+            <li class="pet" @click="modifyPet">昵称
                 <span>小柒</span>
                 <i class="select iconfont icon-back-copy"></i></li>
             <li class="oneborder"></li>
-            <li class="sex">性别
+            <li class="sex" @click="modifySex">性别
                 <span>女</span>
                 <i class="select iconfont icon-back-copy"></i></li>
             <li class="oneborder"></li>
@@ -25,19 +31,19 @@
                 <span>264852346</span>
                 <i class="select iconfont icon-back-copy"></i></li>
             <li class="oneborder"></li>
-            <li class="qrcode">二维码名片
+            <li class="qrcode" @click="modifyQrcode">二维码名片
                 <span class="iconfont icon-erweima"></span>
                 <i class="select iconfont icon-back-copy"></i></li>
             <li class="oneborder"></li>
-            <li class="birth">出生日期
+            <li class="birth" @click="modifyBirth">出生日期
                 <span>1995-10-05</span>
                 <i class="select iconfont icon-back-copy"></i></li>
             <li class="oneborder"></li>
-            <li class="area">地区
+            <li class="area" @click="modifyArea">地区
                 <span>深圳市-南山区</span>
                 <i class="select iconfont icon-back-copy"></i></li>
             <li class="oneborder"></li>
-            <li class="textarea">个性签名
+            <li class="textarea" @click="modifyTextarea">个性签名
                 <span>一路前行，时间是最好的见证者</span>
                 <i class="select iconfont icon-back-copy"></i></li>
         </ul>
@@ -45,17 +51,64 @@
 
 
     </div>
+</div>
 </template>
 
 <script>
 export default {
-
+    methods: {
+        goBack(){
+            history.back();
+        },
+        modifyPet(){
+            this.$router.push({
+                name: 'pet',
+                path: '/selfdata/pet',
+            });
+        },
+        modifySex(){
+            this.$router.push({
+                name: 'sex',
+                path: '/selfdata/sex',
+            });
+        },
+        modifyQrcode(){
+            this.$router.push({
+                name: 'qrcode',
+                path: '/selfdata/qrcode',
+            });
+        },
+        modifyBirth(){
+            this.$router.push({
+                name: 'birth',
+                path: '/selfdata/birth',
+            });
+        },
+        modifyArea(){
+            this.$router.push({
+                name: 'area',
+                path: '/selfdata/area',
+            });
+        },
+        modifyTextarea(){
+            this.$router.push({
+                name: 'textarea',
+                path: '/selfdata/textarea',
+            });
+        },
+    }
 }
 </script>
 
 <style scoped>
-#selfdata{
+#selfdata-wrap{
+    width: 100%;
+    height: 13.34rem;
+    background: #fff;
     position: relative;
+}
+#selfdata{
+    position: absolute;
     z-index: 10;
     width: 100%;
     height: 13.34rem;

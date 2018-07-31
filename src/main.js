@@ -10,9 +10,8 @@ import AppContent from "@/components/common/AppContent.vue";
 Vue.component("app-content", AppContent);
 //定义过滤器例子
 import { arrToString } from './filter/arrToString.js';
+import VueRouter from 'vue-router';
 Vue.filter("arrToString", arrToString);
-
-
 
 
 

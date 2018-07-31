@@ -1,5 +1,5 @@
 <template>
-<div>
+<div id="setting-wrap">
     <keep-alive>
         <router-view>
 
@@ -33,7 +33,7 @@
                     <i class="about iconfont icon-back-copy"></i>
                 </li>
             </ul>
-            <button>退出登录</button>
+            <button @click="cancelSetting">退出登录</button>
         </div>
 
 </div>
@@ -77,6 +77,11 @@ export default {
 </script>
 
 <style scoped>
+#setting-wrap{
+    width: 100%;
+    height: 13.34rem;
+    background: #fff;
+}
 #setting{
     position: relative;
     z-index: 10;
