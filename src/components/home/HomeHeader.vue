@@ -27,7 +27,7 @@ export default {
         checkPageAction(index){
             this.isActive = index;
             this.$pubsub.$emit("checkPage", index)
-            
+
         },
         //左侧打开侧边栏
         showSlideBarAction(){
@@ -37,6 +37,7 @@ export default {
         goSearchPage(){
             this.$pubsub.$emit("goSearchPage");
         }
+
     }
 }
 </script>
@@ -48,7 +49,7 @@ export default {
         left: 0;
         width: 100%;
         height: .88rem;
-        background: #fff;      
+        background: #fff;
     }
     .center-content{
         position: absolute;

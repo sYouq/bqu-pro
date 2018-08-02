@@ -32,7 +32,7 @@ export default {
         goBack(){
             history.back();
         },
-        goTextArea(){
+        goFeedBack(){
             this.$router.push({
                 name: 'feedback',
                 path: '/setting/about/feedback'

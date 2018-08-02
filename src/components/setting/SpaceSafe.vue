@@ -7,12 +7,12 @@
     <div id="list">
         <div id="input-wrap">
             <span>公开显示关注的人</span>
-            <i @click="clearInput" class="toggle iconfont icon-shezhi"></i>
+            <i  class="toggle iconfont icon-shezhi"></i>
         </div>
 
         <div id="input-wrap">
             <span>公开显示我的收藏</span>
-            <i @click="clearInput" class="toggle iconfont icon-shezhi"></i>
+            <i  class="toggle iconfont icon-shezhi"></i>
         </div>
 
 

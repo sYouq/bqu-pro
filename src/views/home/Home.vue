@@ -3,6 +3,7 @@
     <!-- 首页头部组件 -->
 <home-header></home-header>
 
+
 <app-content class="content">
     <div class="find" v-show="page == 1">
         <find></find>
@@ -26,6 +27,10 @@
 </template>
 
 <script>
+//测试分享模块
+import FongShare from "@/components/common/FongShare.vue"
+
+
 //首页头部组件
 import HomeHeader from "@/components/home/HomeHeader.vue";
 //侧边栏组件
@@ -48,7 +53,7 @@ export default {
         Find,
         SlideBar,
         Search,
-
+        FongShare
     },
     data(){
         return {
@@ -70,6 +75,7 @@ export default {
         this.$pubsub.$on("goSearchPage", ()=>{
             this.isGoSearch = true;
         })
+
 
     }
 }

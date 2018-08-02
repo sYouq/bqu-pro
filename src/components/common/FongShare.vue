@@ -1,45 +1,52 @@
 <template>
     <div id="share">
-            <transition name="slideInfo">
-        <div id="tab">
-            <span id="title">分享给</span>
+        <transition name="slideInfo">
+            <div id="tab" >
+                <span id="title">分享给</span>
 
-                <div id="item-wrap">
-                    <div class="item">
-                        <i>
-                            <span class="iconfont icon-xin1"></span></i>
-                        <span>微信好友</span>
+                    <div id="item-wrap">
+                        <div class="item">
+                            <i>
+                                <span class="iconfont icon-xin1"></span></i>
+                            <span>微信好友</span>
+                        </div>
+                        <div class="item">
+                            <i><span class="iconfont icon-xin1"></span></i>
+                            <span>朋友圈</span>
+                        </div>
+                        <div class="item">
+                            <i><span class="iconfont icon-xin1"></span></i>
+                            <span>微博</span>
+                        </div>
+                        <div class="item">
+                            <i><span class="iconfont icon-xin1"></span></i>
+                            <span>QQ好友</span>
+                        </div>
+                        <div class="item">
+                            <i><span class="iconfont icon-xin1"></span></i>
+                            <span>QQ空间</span>
+                        </div>
+                        <div class="item">
+                            <i><span class="iconfont icon-xin1"></span></i>
+                            <span>复制链接</span>
+                        </div>
                     </div>
-                    <div class="item">
-                        <i><span class="iconfont icon-xin1"></span></i>
-                        <span>朋友圈</span>
-                    </div>
-                    <div class="item">
-                        <i><span class="iconfont icon-xin1"></span></i>
-                        <span>微博</span>
-                    </div>
-                    <div class="item">
-                        <i><span class="iconfont icon-xin1"></span></i>
-                        <span>QQ好友</span>
-                    </div>
-                    <div class="item">
-                        <i><span class="iconfont icon-xin1"></span></i>
-                        <span>QQ空间</span>
-                    </div>
-                    <div class="item">
-                        <i><span class="iconfont icon-xin1"></span></i>
-                        <span>复制链接</span>
-                    </div>
-                </div>
-            <span id="cancel" @click="goBack">取消</span>
-        </div>
-            </transition>
+                <span id="cancel" @click="goBack" >取消</span>
+            </div>
+        </transition>
     </div>
 </template>
 
 <script>
 export default {
+    data(){
+        return{
+
+        }
+    },
+    //监听首页点击显示分享页事件
     methods: {
+
         goBack(){
             history.back();
         }
@@ -50,7 +57,7 @@ export default {
 <style scoped>
 #share{
     background: rgba(0,0,0,.2);
-    position: relative;
+    position: absolute;
     width: 100%;
     height: 100%;
     z-index: 10;

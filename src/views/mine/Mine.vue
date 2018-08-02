@@ -4,6 +4,8 @@
 <home-header></home-header>
 <app-content>
 </app-content>
+
+
     <button id="self" @click="goSelfData">个人资料按钮</button>
     <button id="share" @click="goShare">分享按钮</button>
    <!-- 侧边栏组件 -->
