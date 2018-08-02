@@ -6,7 +6,8 @@
 
                 <div id="item-wrap">
                     <div class="item">
-                        <i><span class="iconfont icon-xin1"></span></i>
+                        <i>
+                            <span class="iconfont icon-xin1"></span></i>
                         <span>微信好友</span>
                     </div>
                     <div class="item">

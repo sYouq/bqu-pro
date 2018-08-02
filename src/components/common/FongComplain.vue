@@ -1,19 +1,22 @@
 <template>
-    <div id="clearplace">
+    <div id="complain">
 
 
         <header>
             <i @click="goBack" class="return iconfont icon-fanhui"></i>
-            <h1>清理存储空间</h1>
+            <h1>投诉</h1>
 
         </header>
-
+        <span>请选择投诉该账号的原因</span>
         <ul>
-            <li>清空本地图片缓存</li>
+            <li>发布不适当内容对我造成骚扰</li>
             <li class="oneborder"></li>
-            <li>清空本地视频缓存</li>
+            <li>存在欺诈行为</li>
             <li class="oneborder"></li>
-            <li>清空本地聊天记录</li>
+            <li>此账号可能被盗用了</li>
+            <li class="oneborder"></li>
+            <li>存在侵权行为</li>
+            <li class="oneborder"></li>
         </ul>
 
 
@@ -32,7 +35,7 @@ export default {
 </script>
 
 <style scoped>
-#clearplace{
+#complain{
     top: 0;
     left: 0;
     position: relative;
@@ -41,12 +44,12 @@ export default {
     height: 13.34rem;
     background: #f5f5f5;
 }
-#clearplace header{
+#complain header{
     background: #f1457c;
     height: 1.28rem;
     text-align: center;
 }
-#clearplace header .return{
+#complain header .return{
     color: #fff;
     position: absolute;
     top: .7rem;
@@ -54,7 +57,7 @@ export default {
     font-size: .28rem;
 }
 
-#clearplace header h1{
+#complain header h1{
     position: absolute;
     top: .58rem;
     left: 2.74rem;
@@ -64,15 +67,25 @@ export default {
     line-height: .48rem;
 
 }
-#clearplace ul{
+#complain span{
+    line-height: .6rem;
+    font-size: .24rem;
+    color: #999;
+    font-family: PingFangSC-Regular;
+    position: absolute;
+    top: 1.28rem;
+    left: .28rem;
+
+}
+#complain ul{
     position: absolute;
     left: 0;
-    top: 1.68rem;
+    top: 1.86rem;
     background: #fff;
     width: 100%;
-    min-height:3.04rem ;
+    min-height:11.48rem ;
 }
-#clearplace ul li{
+#complain ul li{
     background: #fff;
     box-sizing: border-box;
     height: .98rem;
@@ -86,7 +99,7 @@ export default {
     text-align: left;
 
 }
-#clearplace ul .oneborder{
+#complain ul .oneborder{
     content: "";
     background: #f5f5f5;
     border-bottom: 1px solid #f5f5f5;

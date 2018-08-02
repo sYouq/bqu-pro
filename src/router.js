@@ -9,13 +9,28 @@ import Dynamic from "./views/dynamic/Dynamic.vue";
 import Message from "./views/message/Message.vue";
 import Mine from "./views/mine/Mine.vue";
 
+
+//投诉页面
+import FongComplain from './components/common/FongComplain.vue'
+
+
+
 //设置组件
 import FongSetting from "./components/common/FongSetting.vue";
 //四个设置数据组件
 import Account from "./components/setting/Account.vue"
 import Safe from "./components/setting/Safe.vue";
+//safe下的两个页面
+import RealName from "./components/setting/RealName.vue";
+import SpaceSafe from "./components/setting/SpaceSafe.vue"
+
+
 import ClearPlace from "./components/setting/ClearPlace.vue";
 import About from "./components/setting/About.vue";
+//about页面下的反馈页面
+import FeedBack from './components/setting/FeedBack.vue'
+
+
 //个人资料组件
 import FongPersonalData from "./components/common/FongPersonalData.vue";
 //六个个人资料数据组件
@@ -55,6 +70,11 @@ export default new Router({
 
     },
     {
+      name: 'complain',
+      path: '/complain',
+      component: FongComplain
+    },
+    {
       name: 'setting',
       path: '/setting',
       component: FongSetting,
@@ -68,7 +88,19 @@ export default new Router({
         {
           name: 'safe',
           path: '/setting/safe',
-          component: Safe
+          component: Safe,
+          children:[
+            {
+              name: 'realname',
+              path: '/setting/safe/realname',
+              component: RealName
+            },
+            {
+              name: 'spacesafe',
+              path: '/setting/safe/spacesafe',
+              component: SpaceSafe
+            },
+          ]
 
         },
         {
@@ -80,8 +112,12 @@ export default new Router({
         {
           name: 'about',
           path: '/setting/about',
-          component: About
-
+          component: About,
+          children:[{
+            name: 'feedback',
+            path: '/setting/about/feedback',
+            component: FeedBack
+          }]
         }
       ]
     },

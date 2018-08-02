@@ -1,15 +1,17 @@
 <template>
 <div id="setting-wrap">
-    <keep-alive>
-        <router-view>
 
-        </router-view>
-    </keep-alive>
 
         <div id="setting">
 
 
             <header>
+                <keep-alive>
+                    <router-view>
+
+                    </router-view>
+                </keep-alive>
+
                 <i class="return iconfont icon-fanhui" @click="cancelSetting"></i>
                 <h1>设置</h1>
 
@@ -39,7 +41,7 @@
 </div>
 </template>
 
-<script>
+<script scoped>
 export default {
 
 

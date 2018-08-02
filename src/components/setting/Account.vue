@@ -40,7 +40,7 @@ export default {
 
 <style scoped>
 #account{
-    top: -100%;
+    top: 0;
     left: 0;
     position: relative;
     z-index: 20;

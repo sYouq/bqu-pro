@@ -3,13 +3,18 @@
 
 
         <header>
+            <keep-alive>
+                <router-view>
+
+                </router-view>
+            </keep-alive>
             <i @click="goBack" class="return iconfont icon-fanhui"></i>
             <h1>关于伴趣</h1>
 
         </header>
 
         <ul>
-            <li>意见反馈<i class="textarea iconfont icon-back-copy"></i></li>
+            <li @click="goFeedBack()">意见反馈<i class="textarea iconfont icon-back-copy"></i></li>
             <li class="oneborder"></li>
             <li>去评分<i class="select iconfont icon-back-copy"></i></li>
             <li class="oneborder"></li>
@@ -26,6 +31,12 @@ export default {
     methods: {
         goBack(){
             history.back();
+        },
+        goTextArea(){
+            this.$router.push({
+                name: 'feedback',
+                path: '/setting/about/feedback'
+            })
         }
     }
 }
@@ -33,7 +44,7 @@ export default {
 
 <style scoped>
 #about{
-    top: -100%;
+    top: 0;
     left: 0;
     position: relative;
     z-index: 20;
@@ -83,7 +94,7 @@ export default {
     font-size: .3rem;
     line-height: .98rem;
     position: relative;
-
+    text-align: left;
 
 }
 #about ul .oneborder{

@@ -1,16 +1,17 @@
 <template>
-    <div id="pet-wrap">
+    <div id="feedback-wrap">
 
-        <div id="pet">
+        <div id="feedback">
 
             <header>
                 <i @click="goBack" class="return iconfont icon-fanhui"></i>
-                <h1>修改昵称</h1>
+                <h1>意见反馈</h1>
                 <i @click="saveData" class="save">保存</i>
             </header>
 
             <div id="input-wrap">
-                <input type="text" v-model="userPet">
+                <textarea  v-model="userText">
+                </textarea>
             </div>
             <i @click="clearInput" class="clear iconfont icon-shezhi"></i>
 
@@ -22,7 +23,7 @@
 export default {
     data(){
         return {
-            userPet : "小柒"
+            userText : "说点什么吧。。。。。。"
         }
 
     },
@@ -31,7 +32,7 @@ export default {
             history.back();
         },
         clearInput(){
-            this.userPet = "";
+            this.userText = "";
         },
         saveData(){
             alert("已保存")
@@ -41,13 +42,13 @@ export default {
 </script>
 
 <style scoped>
-#pet-wrap{
+#feedback-wrap{
     position: relative;
     background: #fff;
     width: 100%;
     height: 13.34rem;
 }
-#pet{
+#feedback{
     top: 0;
     left: 0;
     position: absolute;
@@ -56,29 +57,29 @@ export default {
     height: 13.34rem;
     background: #fff;
 }
-#pet header{
+#feedback header{
     background: #f1457c;
     height: 1.28rem;
     text-align: center;
 }
-#pet header .return{
+#feedback header .return{
     color: #fff;
     position: absolute;
     top: .7rem;
     left: .3rem;
     font-size: .28rem;
 }
-#pet header h1{
+#feedback header h1{
     position: absolute;
     top: .6rem;
-    left: 3.1rem;
+    left: 3.08rem;
     color: #fff;
     font-family: PingFangSC-Regular;
     font-size: .34rem;
     line-height: .48rem;
 
 }
-#pet header .save{
+#feedback header .save{
     color: #fff;
     position: absolute;
     top: .7rem;
@@ -88,19 +89,19 @@ export default {
     line-height: .42rem;
     font-style: normal;
 }
-#pet #input-wrap{
+#feedback #input-wrap{
     display: block;
     width: 6.64rem;
-    height: .62rem;
+    height: 2.42rem;
     position: absolute;
     left: .43rem;
     top: 1.51rem;
 }
-#pet input{
+#feedback textarea{
     display: block;
     border: 0;
     width: 6.64rem;
-    height: .62rem;
+    height: 2.42rem;
 
     font-family: PingFangSC-Regular;
     font-size: .26rem;
@@ -108,7 +109,7 @@ export default {
     line-height: .62rem;
     outline: none;
 }
-#pet #input-wrap::after{
+#feedback #input-wrap::after{
     height: 1px;
     width: 100%;
     content: '';
@@ -119,7 +120,7 @@ export default {
     transform: scaleY(0.5);
     -webkit-transform: scaleY(0.5);
 }
-#pet .clear{
+#feedback .clear{
     position: absolute;
     top: 1.7rem;
     right: .3rem;

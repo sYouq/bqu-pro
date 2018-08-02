@@ -1,131 +1,130 @@
 <template>
-    <div id="textarea">
+    <div id="text-area-wrap">
 
+        <div id="text-area">
 
-        <header>
-            <i @click="goBack" class="return iconfont icon-fanhui"></i>
-            <h1>安全隐私</h1>
+            <header>
+                <i @click="goBack" class="return iconfont icon-fanhui"></i>
+                <h1>修改个性签名</h1>
+                <i @click="saveData" class="save">保存</i>
+            </header>
 
-        </header>
+            <div id="input-wrap">
+                <textarea  v-model="userText">
+                </textarea>
+            </div>
+            <i @click="clearInput" class="clear iconfont icon-shezhi"></i>
 
-        <ul>
-            <li>实名认证
-                <i class="realname iconfont icon-back-copy"></i>
-            </li>
-            <li class="oneborder"></li>
-            <li>空间隐私设置
-                <i class="space iconfont icon-back-copy"></i>
-            </li>
-            <li class="oneborder"></li>
-            <!-- <li>屏蔽此人
-                <i class="mask iconfont icon-shezhi"></i>
-            </li> -->
-        </ul>
-
-
-
+        </div>
     </div>
 </template>
 
 <script>
 export default {
+    data(){
+        return {
+            userText : "请输入新的个性签名"
+        }
+
+    },
     methods:{
         goBack(){
             history.back();
         },
+        clearInput(){
+            this.userText = "";
+        },
+        saveData(){
+            alert("已保存")
+        }
     }
 }
 </script>
 
 <style scoped>
-#safe{
-    top: -100%;
-    left: 0;
+#text-area-wrap{
     position: relative;
+    background: #fff;
+    width: 100%;
+    height: 13.34rem;
+}
+#text-area{
+    top: 0;
+    left: 0;
+    position: absolute;
     z-index: 20;
     width: 100%;
     height: 13.34rem;
-    background: #f5f5f5;
+    background: #fff;
 }
-#safe header{
+#text-area header{
     background: #f1457c;
     height: 1.28rem;
     text-align: center;
 }
-#safe header .return{
+#text-area header .return{
     color: #fff;
     position: absolute;
     top: .7rem;
     left: .3rem;
     font-size: .28rem;
 }
-
-#safe header h1{
+#text-area header h1{
     position: absolute;
-    top: .58rem;
-    left: 3.08rem;
+    top: .6rem;
+    left: 2.74rem;
     color: #fff;
     font-family: PingFangSC-Regular;
     font-size: .34rem;
     line-height: .48rem;
 
 }
-#safe ul{
+#text-area header .save{
+    color: #fff;
     position: absolute;
-    left: 0;
-    top: 1.68rem;
-    background: #fff;
-    width: 100%;
-    min-height:3.04rem ;
-}
-#safe ul li{
-    background: #fff;
-    box-sizing: border-box;
-    height: .98rem;
-    width: 100%;
-    padding:0 .3rem 0 .28rem;
-    font-family: PingFangSC-Regular;
-    color: #333;
+    top: .7rem;
+    left:  6.6rem;
     font-size: .3rem;
-    line-height: .98rem;
-    position: relative;
-
-
+    font-family: PingFangSC-Regular;
+    line-height: .42rem;
+    font-style: normal;
 }
-#safe ul .oneborder{
-    content: "";
-    background: #f5f5f5;
-    border-bottom: 1px solid #f5f5f5;
+#text-area #input-wrap{
+    display: block;
+    width: 6.64rem;
+    height: 2.42rem;
+    position: absolute;
+    left: .43rem;
+    top: 1.51rem;
+}
+#text-area textarea{
+    display: block;
+    border: 0;
+    width: 6.64rem;
+    height: 2.42rem;
+
+    font-family: PingFangSC-Regular;
+    font-size: .26rem;
+    color: #999;
+    line-height: .62rem;
+    outline: none;
+}
+#text-area #input-wrap::after{
     height: 1px;
     width: 100%;
+    content: '';
+    border-bottom: 1px solid #ccc;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
     transform: scaleY(0.5);
-    -webkit-transform: scaleY(.5);
+    -webkit-transform: scaleY(0.5);
 }
-#safe ul li .realname{
+#text-area .clear{
     position: absolute;
-    top: .3rem;
-    left: 7rem;
-    color: #9b9b9b;
-    font-size: .2rem;
-    line-height: .2rem;
+    top: 1.7rem;
+    right: .3rem;
+    color: #999;
+    font-size: .3rem;
 }
-#safe ul li .space{
-    position: absolute;
-    top: .3rem;
-    left: 7rem;
-    color: #9b9b9b;
-    font-size: .2rem;
-    line-height: .2rem;
-}
-#safe ul li .mask{
-    position: absolute;
-    -top: .22rem;
-    -left: 6.3rem;
-    top: .32rem;
-    left: 6.8rem;
-    color: #9b9b9b;
-    font-size: .4rem;
-    line-height: .4rem;
-}
-
 </style>

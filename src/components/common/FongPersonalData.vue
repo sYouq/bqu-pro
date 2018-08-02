@@ -1,14 +1,17 @@
 <template>
 <div id="selfdata-wrap">
-    <keep-alive>
-        <router-view>
-
-        </router-view>
-    </keep-alive>
 
     <div id="selfdata">
 
+
         <header>
+            <keep-alive>
+                <router-view>
+
+                </router-view>
+            </keep-alive>
+
+
             <i @click="goBack" class="return iconfont icon-fanhui"></i>
             <h1>个人资料</h1>
 
@@ -118,6 +121,7 @@ export default {
     background: #f1457c;
     height: 1.28rem;
     text-align: center;
+    position: relative;
 }
 #selfdata header .return{
     color: #fff;

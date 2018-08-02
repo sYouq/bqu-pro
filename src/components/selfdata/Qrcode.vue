@@ -1,26 +1,26 @@
 <template>
     <div id="qrcode">
 
-
         <header>
             <i @click="goBack" class="return iconfont icon-fanhui"></i>
-            <h1>安全隐私</h1>
+            <h1>二维码</h1>
 
         </header>
+        <div id="qrcode-wrap" @click="goBack">
 
-        <ul>
-            <li>实名认证
-                <i class="realname iconfont icon-back-copy"></i>
-            </li>
-            <li class="oneborder"></li>
-            <li>空间隐私设置
-                <i class="space iconfont icon-back-copy"></i>
-            </li>
-            <li class="oneborder"></li>
-            <!-- <li>屏蔽此人
-                <i class="mask iconfont icon-shezhi"></i>
-            </li> -->
-        </ul>
+            <div id="box" >
+                <div id="box-wrap">
+
+                <li>
+                        <i class="userpic"></i>
+                        <span class="name">小柒</span>
+                        <span class="id">伴趣ID：264852346</span>
+
+                    </li>
+                    <i class="qrcode iconfont icon-erweima"></i>
+                </div>
+            </div>
+        </div>
 
 
 
@@ -29,103 +29,114 @@
 
 <script>
 export default {
-    methods:{
-        goBack(){
-            history.back();
-        },
+  data() {
+    return {
+
+    };
+  },
+  methods: {
+    goBack() {
+      history.back();
     }
-}
+  }
+};
 </script>
 
 <style scoped>
-#safe{
-    top: -100%;
-    left: 0;
-    position: relative;
-    z-index: 20;
+#qrcode {
+  position: relative;
+  width: 100%;
+  height: 13.34rem;
+  z-index: 20;
+}
+#qrcode-wrap{
     width: 100%;
-    height: 13.34rem;
-    background: #f5f5f5;
-}
-#safe header{
-    background: #f1457c;
-    height: 1.28rem;
-    text-align: center;
-}
-#safe header .return{
-    color: #fff;
-    position: absolute;
-    top: .7rem;
-    left: .3rem;
-    font-size: .28rem;
-}
-
-#safe header h1{
-    position: absolute;
-    top: .58rem;
-    left: 3.08rem;
-    color: #fff;
-    font-family: PingFangSC-Regular;
-    font-size: .34rem;
-    line-height: .48rem;
-
-}
-#safe ul{
+    height: 12.06rem;
     position: absolute;
     left: 0;
-    top: 1.68rem;
-    background: #fff;
-    width: 100%;
-    min-height:3.04rem ;
+    top: 1.28rem;
+  background: rgba(0, 0, 0, 0.3);
 }
-#safe ul li{
-    background: #fff;
-    box-sizing: border-box;
-    height: .98rem;
-    width: 100%;
-    padding:0 .3rem 0 .28rem;
-    font-family: PingFangSC-Regular;
-    color: #333;
-    font-size: .3rem;
-    line-height: .98rem;
-    position: relative;
-
-
+#qrcode header {
+  background: #f1457c;
+  height: 1.28rem;
+  text-align: center;
+  position: relative;
+  z-index: 20;
 }
-#safe ul .oneborder{
-    content: "";
-    background: #f5f5f5;
-    border-bottom: 1px solid #f5f5f5;
-    height: 1px;
-    width: 100%;
-    transform: scaleY(0.5);
-    -webkit-transform: scaleY(.5);
+#qrcode header .return {
+  color: #fff;
+  position: absolute;
+  top: 0.7rem;
+  left: 0.3rem;
+  font-size: 0.28rem;
+  z-index: 20;
 }
-#safe ul li .realname{
+#qrcode header h1 {
+  position: absolute;
+  top: 0.6rem;
+  left: 3.34rem;
+  color: #fff;
+  font-family: PingFangSC-Regular;
+  font-size: 0.34rem;
+  line-height: 0.48rem;
+}
+#qrcode #box {
+  display: block;
+  width: 6.4rem;
+  height: 10rem;
+  background: #fff;
+  position: absolute;
+  top: 1.04rem;
+  left: 0.56rem;
+}
+#qrcode #box #box-wrap {
+  position: relative;
+  width: 6.4rem;
+  height: 10rem;
+}
+#qrcode #box #box-wrap .qrcode{
     position: absolute;
-    top: .3rem;
-    left: 7rem;
-    color: #9b9b9b;
-    font-size: .2rem;
-    line-height: .2rem;
+    display: block;
+    left: 1.2rem;
+    top: 3rem;
+    color: #4a4a4a;
+    width: 4rem;
+    height: 4rem;
+    font-size:4rem;
+    line-height: 4rem;
 }
-#safe ul li .space{
+#qrcode #box-wrap li{
+    width: 100%;
+    height: .88rem;
     position: absolute;
-    top: .3rem;
-    left: 7rem;
-    color: #9b9b9b;
-    font-size: .2rem;
-    line-height: .2rem;
+    top: .4rem;
+    left: .4rem;
 }
-#safe ul li .mask{
-    position: absolute;
-    -top: .22rem;
-    -left: 6.3rem;
-    top: .32rem;
-    left: 6.8rem;
-    color: #9b9b9b;
-    font-size: .4rem;
-    line-height: .4rem;
+#qrcode #box-wrap li .userpic {
+  width: 0.88rem;
+  height: 0.88rem;
+  position: absolute;
+  top: 0.05rem;
+  left: 0.3rem;
+  background: #eee;
 }
-
+#qrcode #box-wrap li .name {
+  position: absolute;
+  top: 0.16rem;
+  left: 1.36rem;
+  font-family: PingFangSC-Regular;
+  font-size: 0.3rem;
+  line-height: 0.42rem;
+  color: #333;
+}
+#qrcode #box-wrap li .id {
+  position: absolute;
+  top: 0.54rem;
+  left: 1.36rem;
+  font-family: PingFangSC-Regular;
+  font-size: 0.26rem;
+  line-height: 0.36rem;
+  color: #999;
+}
 </style>

@@ -3,23 +3,28 @@
 
 
         <header>
+            <keep-alive>
+                <router-view>
+
+                </router-view>
+            </keep-alive>
             <i @click="goBack" class="return iconfont icon-fanhui"></i>
             <h1>安全隐私</h1>
 
         </header>
 
         <ul>
-            <li>实名认证
+            <li @click="goRealName">实名认证
                 <i class="realname iconfont icon-back-copy"></i>
             </li>
             <li class="oneborder"></li>
-            <li>空间隐私设置
+            <li @click="goSpaceSafe">空间隐私设置
                 <i class="space iconfont icon-back-copy"></i>
             </li>
             <li class="oneborder"></li>
-            <!-- <li>屏蔽此人
+            <li>屏蔽此人
                 <i class="mask iconfont icon-shezhi"></i>
-            </li> -->
+            </li>
         </ul>
 
 
@@ -33,13 +38,25 @@ export default {
         goBack(){
             history.back();
         },
+        goRealName(){
+            this.$router.push({
+                name: "realname",
+                path: '/setting/safe/realname'
+            })
+        },
+        goSpaceSafe(){
+            this.$router.push({
+                name: "spacesafe",
+                path: '/setting/safe/spacesafe'
+            })
+        },
     }
 }
 </script>
 
 <style scoped>
 #safe{
-    top: -100%;
+    top: 0;
     left: 0;
     position: relative;
     z-index: 20;
@@ -89,7 +106,7 @@ export default {
     font-size: .3rem;
     line-height: .98rem;
     position: relative;
-
+    text-align: left;
 
 }
 #safe ul .oneborder{
