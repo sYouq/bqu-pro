@@ -120,9 +120,7 @@ export default {
         },
         //进入聊天详情页
         goChatDetail(){
-            console.log(111);
             this.$router.push("chat-list/chatDetail")
-            
         }
         
 

@@ -66,6 +66,7 @@ export default {
         this.$pubsub.$on("goSearchPage", ()=>{
             this.isGoSearch = true;
         })
+        console.log(this.$store)
     }
 }
 </script>

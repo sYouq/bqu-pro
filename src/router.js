@@ -10,12 +10,14 @@ import Dynamic from "./views/dynamic/Dynamic.vue";
 import Message from "./views/message/Message.vue";
 import ChatList from "./views/message/ChatList.vue";
 import ChatDetail from "./views/message/ChatDetail.vue";
+import AttentionList from "./views/message/AttentionList.vue";
+import FriendList from "./views/message/FriendList.vue";
 
 import Mine from "./views/mine/Mine.vue";
 import Login from "./views/mine/Login.vue";
 
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/home',
@@ -31,7 +33,19 @@ export default new Router({
     {
       path: '/message',
       name: 'message',
-      component: Message
+      component: Message,
+      children : [
+        {
+          name : 'attentionList',
+          path : 'attentionList',
+          component : AttentionList
+        },
+        {
+          name : 'friendList',
+          path : "friendList",
+          component : FriendList
+        }
+      ]
     },
     {
       path: '/mine',
@@ -64,3 +78,35 @@ export default new Router({
   ]
 })
 
+
+router.beforeEach((to, from, next)=>{
+
+  var str = localStorage.getItem("uesr");
+  var userLocal = JSON.parse(str);
+  var auth = null;
+
+  const nextRoute = [ 'home', 'dynamic', 'message', 'mine'];
+  if(userLocal == null || userLocal.isLogin != true){
+    auth = false;
+  }else{
+    auth = true;
+  }
+  if (nextRoute.indexOf(to.name) >= 0) {
+      //未登录
+      if (!auth) {
+          router.push({name: 'login'})
+      }
+  }
+  //已登录的情况再去登录页，跳转至首页
+  if (to.name === 'login') {
+      if (auth) {
+          router.push({name: 'home'});
+      }
+  }
+
+  next();
+
+})
+
+
+export default  router;

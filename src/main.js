@@ -11,6 +11,9 @@ Vue.component("app-content", AppContent);
 //定义过滤器例子
 import { arrToString } from './filter/arrToString.js';
 Vue.filter("arrToString", arrToString);
+//数字转换为时间格式
+import {timeFormat} from "./filter/timeFormat.js";
+Vue.filter("timeFormat", timeFormat);
 
 
 

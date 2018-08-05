@@ -2,9 +2,9 @@
     <div class="message-wrap">
         <ul>
             <li @click="goChatListAction()">消息列表<i class="iconfont icon-back-copy icon"></i></li>
-            <li>好友<i class="iconfont icon-back-copy icon"></i></li>
+            <li @click="goFriendListAction()">好友<i class="iconfont icon-back-copy icon"></i></li>
             <li>好友名片<i class="iconfont icon-back-copy icon"></i></li>
-            <li>关注列表<i class="iconfont icon-back-copy icon"></i></li>
+            <li @click="goAttentionListAction()">关注列表<i class="iconfont icon-back-copy icon"></i></li>
         </ul>
     </div>
 </template>
@@ -14,6 +14,12 @@ export default {
     methods : {
         goChatListAction(){
             this.$router.push('/chat-list');
+        },
+        goAttentionListAction(){
+            this.$router.push('/message/attentionList')
+        },
+        goFriendListAction(){
+            this.$router.push('/message/friendList');
         }
     }
 }

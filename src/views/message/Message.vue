@@ -3,7 +3,7 @@
     <app-content class="message-cont">
         <index></index>
     </app-content>
-    
+    <router-view></router-view>
 </div>
 </template>
 

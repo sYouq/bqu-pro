@@ -7,12 +7,12 @@
         <div class="login-ipt">
             <div class="phone-number ipt">
                 <i class="iconfont icon-unie639"></i>
-                <input type="text" class="phone" placeholder="请输入您的手机号码" @blur="checkPhoneNumber" ref="phone">
-                <span class="btn-sendcode">发送验证码</span>
+                <input type="text" class="phone" placeholder="请输入您的手机号码" @input="checkPhoneNumber" ref="phone">
+                <span class="btn-sendcode" :class="{focusBg : rellayPhone}" @click="getCodeAction">发送验证码</span>
             </div>
             <div class="code-meg ipt">
                 <i class="iconfont icon-suo"></i>
-                <input type="text" class='code' placeholder="请输入短信验证码??" @blur="checkCodeAction" ref="code">
+                <input type="text" class='code' placeholder="请输入短信验证码??" @input="checkCodeAction" ref="code">
             </div>
             <div class="ipt login" @click="loginAction()">
                 登录
@@ -35,13 +35,15 @@
 </template>
 
 <script>
+import {getCode , sendLogin} from "../../services/loginService.js";
 export default {
     data(){
         return {
-            isPhone : false,
-            isCode : false,
+            isPhone : false, //控制点击登录的按钮
+            rellayPhone : false, //判断是否是正确的电话号码
+            isCode : false,  //控制点击登录的按钮
             isShowError : false,
-            errorMeg : ''
+            errorMeg : '' 
         }
     },
     methods : {
@@ -52,9 +54,11 @@ export default {
                 this.isPhone = true;
                 this.isShowError = true;
                 this.errorMeg = "请输入正确的手机号";
+                this.rellayPhone = false;
             }else{
                 this.isPhone = false;
                 this.isShowError = false;
+                this.rellayPhone = true;
             }
 
             // var timeOut = setTimeout(()=>{
@@ -89,15 +93,66 @@ export default {
             //     this.isShowError = false;
             // },3000)
         },
+        //点击登录的事件
         loginAction(){
             if(this.$refs.code.value == "" || this.$refs.code.value == ""){
                 this.isShowError = true;
                 this.errorMeg = "请正确填写信息";
+                
+                //this.$store.dispatch('user/modifyIsLogin', {phone : '18174080072', isLogin : true})
+                // console.log(this.$store)
+                //测试 localStorage.setItem("uesr",'{"phone" : "18174080072", "isLogin" : true}');
             }
-            if(this.isPhone == true || this.isCode == true){
+           else if(this.isPhone == true || this.isCode == true){
                 this.isShowError = true;
             }
+            else{
+                //点击登录，发送手机号码和验证码到服务端
+                console.log(this.$refs.code.value)
+                var phoneNum = this.$refs.phone.value;
+                var codeNum = this.$refs.code.value;
+                sendLogin(phoneNum, codeNum).then((result)=>{
+                    console.log(result)
+                    if(result.code == 200){
+                        var uesrObj = {phone : phoneNum, isLogin : true};
+                        localStorage.setItem("uesr",JSON.stringify(uesrObj));
+                        this.$store.dispatch('modifyIsLogin', uesrObj);
+                        this.$router.push("/home");
+                        
+                    }else if(result.code == 404){
+                        this.errorMeg = result.msg;
+                        console.log(this.errorMeg)
+                        this.isShowError = true;
+                        this.errorMeg = result.msg;
+                        setTimeout(()=>{
+                            this.errorMeg = "";
+                            this.isShowError = false;
+                        },3000)
+                    }
+                });
+            }
+        },
+        //点击发送验证码，获取验证码
+        getCodeAction(){
+            console.log(this.$refs.phone.value);
+            if(this.rellayPhone){
+                var phoneNum = this.$refs.phone.value;
+                //获取验证码
+                getCode(phoneNum).then((result)=>{
+                    console.log(result)
+                    this.isShowError = true;
+                    this.errorMeg = "验证码已发送成功，请注意查收";
+                    setTimeout(()=>{
+                        this.errorMeg = "";
+                        this.isShowError = false;
+                    },3000)
+                    
+                });
+            }
         }
+    },
+    mounted(){
+        
     }
 }
 </script>
@@ -176,6 +231,9 @@ export default {
     color:#fff;
     border-radius: .06rem;
     font-size: .28rem;
+}
+.focusBg{
+    background: lightblue;
 }
 .phone-number{
 

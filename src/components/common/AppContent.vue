@@ -10,8 +10,13 @@
 export default {
     //由父组件在标签上传值， ：reciveScroll = "true" , 为true 时，表示打开滚动监听
     props : ["reciveScroll"],
+
+    methods :{
+        
+    },
     mounted(){
         var myScroll = new IScroll(this.$refs.content, {
+           
             //配置参数，打开滚动监听事件
             probeType : 3
         });
@@ -27,9 +32,10 @@ export default {
         if(this.reciveScroll){
             //正在滚动事件
             myScroll.on('scroll', ()=>{
-                //事件。。。。
+                // console.log(myScroll)
             })
         }
+        
     }
 }
 </script>

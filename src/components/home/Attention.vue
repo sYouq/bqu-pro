@@ -201,8 +201,8 @@ export default {
 }
 .head-img{
     position:absolute;
-    top:0.32rem;
-    left:0;
+    top:0.22rem;
+    left:-0.30rem;
     width: .6rem;
     height: .6rem;
     border-radius:50%;
